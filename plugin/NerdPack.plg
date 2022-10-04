@@ -2,8 +2,8 @@
 
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "NerdPack">
-<!ENTITY author    "dmacias72">
-<!ENTITY version   "2021.08.11">
+<!ENTITY author    "thecode">
+<!ENTITY version   "2022.10.02">
 <!ENTITY launch    "Settings/&name;">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/&author;/unRAID-&name;/master">
 <!ENTITY pluginURL "&gitURL;/plugin/&name;.plg">
@@ -13,177 +13,12 @@
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 ]>
 
-<PLUGIN name="&name;" author="&author;" version="&version;" launch="&launch;" pluginURL="&pluginURL;">
+<PLUGIN name="&name;" author="&author;" version="&version;" launch="&launch;" pluginURL="&pluginURL;" min="6.11">
 
 <CHANGES>
 ##&name;
-###2021.08.11
-- Allow Multiple Digit Version Revisions thanks to Keith Lamprecht
-###2021.01.08
-- fix plugin package permisions
-###2019.12.31
-- fix package subset fals positives
-- update depends
-###2019.01.25
-- remove all icons and convert to fa fonts
-- fix tablesorter overwriting summarized notifications css
-###2019.01.24
-- update settings icon to fa font
-###2018.09.20
-- add autov to css and js
-- remove support link from readme
-###2018.02.17
-- update tablesorter to 2.29.5
-- add auto dependency selection for borgbackup and pip
-###2017.10.03a
-- fix uninstall toggle css
-- fix uninstall package toggle
-- move cdnjs to local
-###2017.10.01b
-- fix stickyheaders for new themes
-- show status for installed packages but no dpwnloaded
-- update tablesorter to 2.29.0
-###2017.09.24
-- show status of packages that are not installed
-###2017.07.08
-- fix check for downloaded package
-###2017.06.17
-- combine delete and uninstall switch
-- add cleanup of old packages
-- add support for azure and gray themes
-- change to separate repo
-- update tablesorter
-###2017.02.06
-- fix support link
-- add perl toggle for vim
-###2017.01.31
-- move local tablesorter to cdn
-- add support link to readme
-###2016.10.20
-- fix: php7 compatibility
-###2016.10.09
-- fix: not creating package directory
-###2016.10.08
-- fix: false positive of installed packages
-- fix: packagemanager bug if cookies are missing
-###2016.09.18
-- fix: packagemanager array errors
-###2016.09.16
-- fix: empty package list on new install or upgrade
-- update tablesorter to 2.27.6
-###2016.09.10
-- add: popup for unRAID version change or empty downloads folder
-- add: always compare package checksums
-- fix: remove corrupted packages
-- fix: remove failed downloads
-- fix: add package desc and json to scandir filter
-###2016.03.15
-- enable apply button if update ready
-- fix: remove old package settings from config after package update
-- create separate package repos  for 6.1 and 6.2
-- update plugin for unRAID 6.2 compatibility
-- update packages for 6.2
-###2016.02.23
-- fix: search for a partial match of packages used in other plugins
-###2016.02.17
-- remove curl progress bar
-- separate plugin depends by comma
-- only show update status of selected packages when processing
-###2016.02.15
-- update tablesorter
-- fix spacing of processing messages
-- remove array start event package install
-- move initial package install to plugin install
-###2016.02.08
-- fix permissions on event script
-###2016.02.02
-- add check for other plugin dependencies on uninstall
-###2016.01.25
-- Merge eschultz pull request
-- tweaks to tablesorter to restore saved filters
-- minor optimizations
-###2016.01.24
-- Merged eschultz's package repo and following fixes
-- Fixed first time running warnings about missing packages.json / desc files
-- Fixed bug preventing Select All from being toggle-able
-- Fixed bug in Select All and dependent package checkboxes / race condition
-- Eliminated vertical space gap between page header and table
-###2016.01.16a
-- add metric parser to sort units
-###2016.01.16
-- minor diplay changes
-- add tablesorter as a separate package
-###2016.01.15
-- fix filter save
-- add filter reset button
-###2016.01.10a-c
-- fix name of package description file
-###2016.01.10
-- added dynamic package description tootips
-- updated tablesorter to v2.25.0
-- add tablesorter widgets (filter, saveSort, stickyHeaders, hover-highlight)
-- added cli options to packagemanager script
-###2015.12.30
-- create packages directory on install
-###2015.12.15a
-- remove command output
-###2015.12.15
-- minor fixes
-###2015.12.14
-- add update functions
-- add delete package function
-- fix some minor bugs
-###2015.12.13
-- initial commit of wrapper plugin for packages in repo
-###2015.12.07
-- Added perl 5.22.0
-- Added vim 7.4.898 (thanks Ryan Detzel)
-
-###2015.09.09
-- Keep all packages installed after NerdPack uninstall so we don't break other plugin's dependancies. (thanks David Coppit)
-
-###2015.08.09
-- Added p7zip 9.38.1
-
-###2015.07.31
-- Added iperf 3.0.11
-
-###2015.06.27
-- Added sshfs 2.5
-
-###2015.06.23
-- Added python 2.7.9 (fixes iotop dependency)
-
-###2015.05.16
-- Added subversion 1.7.16
-- Added MD5 checks for all packages
-
-###2015.05.15
-- Added lftp 4.6.1
-- Replaced installpkg with upgradepkg to allow package upgrading
-- Added removal of packages upon uninstall of NerdPack
-
-###2015.04.29
-- Added git 2.3.5
-
-###2015.04.24
-- Added strace 4.10
-
-###2015.04.23
-- Added bwm-ng 0.6
-
-###2015.02.07
-- Added unrar 5.2.5
-
-###2015.01.06
-- Inital release. includes:
- - iftop 1.0pre2
- - iotop 0.6
- - screen 4.2.1
- - lshw B.02.17
- - kbd 1.15.3
- - inotify-tools 3.14
- - cpio 2.11
+###2022.10.02
+- Prepare for 6.11
 </CHANGES>
 
 <FILE Name="&plgPATH;/&name;.cfg">
@@ -276,7 +111,7 @@ echo ""
 echo "-----------------------------------------------------------"
 echo " &name; has been installed."
 echo " This plugin requires Dynamix webGui to operate"
-echo " Copyright 2016-2021, &author;, eschultz"
+echo " Copyright 2022, &author;, dmacias72, eschultz"
 echo " Version: &version;"
 echo "-----------------------------------------------------------"
 echo ""
@@ -297,7 +132,7 @@ rm -f &plgPATH;/&plgNAME;.md5
 echo ""
 echo "-----------------------------------------------------------"
 echo " &name; has been removed."
-echo " Copyright 2016-2021, &author;, eschultz"
+echo " Copyright 2022, &author;, dmacias72, eschultz"
 echo " Version: &version;"
 echo "-----------------------------------------------------------"
 echo ""
